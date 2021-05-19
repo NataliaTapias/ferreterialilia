@@ -1,0 +1,76 @@
+package vistas;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Usuario extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Usuario frame = new Usuario();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Usuario() {
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 665, 424);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnGastos = new JButton("Gastos");
+		btnGastos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				UsGastos ver=new UsGastos();
+				ver.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnGastos.setBounds(75, 161, 115, 51);
+		contentPane.add(btnGastos);
+		
+		JButton btnFacturar = new JButton("Facturar");
+		btnFacturar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				UsFacturar fac=new UsFacturar();
+				fac.setVisible(true);
+				setVisible(false);
+				
+			}
+		});
+		btnFacturar.setBounds(238, 161, 115, 51);
+		contentPane.add(btnFacturar);
+		
+		JButton button_1 = new JButton("New button");
+		button_1.setBounds(397, 161, 115, 51);
+		contentPane.add(button_1);
+	}
+}

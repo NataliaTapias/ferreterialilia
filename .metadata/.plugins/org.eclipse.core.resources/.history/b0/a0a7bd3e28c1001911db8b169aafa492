@@ -1,0 +1,26 @@
+package objetos;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+import vistas.Alerta;
+
+public class Alert {
+
+	public static void main(String[] args) {
+		Alerta ver=new Alerta();
+	    ver.setVisible(true);
+		final Runnable tarea = new Runnable() {
+			  public void run() {
+			    Alerta ver=new Alerta();
+			    ver.setVisible(true);
+			  }
+			};
+			ScheduledExecutorService timer = Executors.newSingleThreadScheduledExecutor();
+			timer.scheduleAtFixedRate(tarea, 1, 1, TimeUnit.SECONDS);
+
+	}
+	Alert ale = new Alert();
+
+}
